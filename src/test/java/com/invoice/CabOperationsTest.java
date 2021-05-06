@@ -23,4 +23,18 @@ public class CabOperationsTest {
         double totalCabFareCost = cabOperations.calculateMultipleRideCost(multipleRides);
         Assertions.assertEquals(30150,totalCabFareCost);
     }
+    @Test
+    public void givenMultipleRidingDetails_ShouldReturnLengthAnd_Average(){
+        CabOperations cabOperations = new CabOperations();
+        CabRide[] multipleRides = {(new CabRide(25,4))
+                ,(new CabRide(50.0,1.5))
+                ,(new CabRide(60.0,2.5))};
+        double totalCabFareCost = cabOperations.calculateMultipleRideCost(multipleRides);
+        int numberOfRides = cabOperations.getNumberOfRides(multipleRides);
+        double averageCostOfMultipleRides = cabOperations.calculateAverageCostForRides(multipleRides);
+
+        Assertions.assertEquals(30150,totalCabFareCost);
+        Assertions.assertEquals(3,numberOfRides);
+        Assertions.assertEquals(10050,averageCostOfMultipleRides);
+    }
 }
